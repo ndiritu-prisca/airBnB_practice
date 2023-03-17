@@ -79,7 +79,6 @@ class HBNBCommand(cmd.Cmd):
 				return False
 			del objdict[key_val]
 			storage.save()
-
 	def do_all(self, arg):
 		"""Print all method"""
 		objdict = storage.all()
@@ -130,5 +129,10 @@ class HBNBCommand(cmd.Cmd):
 						storage.reload()
 					else:
 						pass
+    def do_default(self, arg):
+        """default method"""
+         if arg == "User.all":
+              return self.do_all(arg)
+
 if __name__ == '__main__':
 	HBNBCommand().cmdloop()
